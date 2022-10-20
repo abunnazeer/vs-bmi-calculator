@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VS-FITNESS</title>
+
+    <!-- BMI CUSTOM CSS STYLE -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- BMI JAVASCRIPT CODE -->
+  </head>
+  <body>
+    <div class="bmi-container">
+      <div class="bmi-inner-box">
+        <h2>BMI Calculator</h2>
+        <form class="bmi-form">
+          <h6>Gender</h6>
+          <div class="gender">
+            <input type="radio" id="male" name="gender" value="male" checked />
+            <img src="assets/icons/man.png" alt="" />
+            <label for="male">Male</label>
+          </div>
+          <div class="gender">
+            <input type="radio" id="female" name="gender" value="female" />
+            <img src="assets/icons/female.png" alt="" />
+            <label for="female">Female</label>
+          </div>
+          <div class="mesurement-box">
+            <div class="m--box">
+              <label for="weight">Weight</label>
+              <input type="text" name="weight" id="weight" />
+            </div>
+            <div class="m--box">
+              <label for="height">Height</label>
+              <input type="text" name="height" id="height" />
+            </div>
+            <div class="m--box">
+              <label for="date">Age</label>
+              <input type="text" name="date" id="your-age" />
+            </div>
+
+            <button type="button" class="btn-calculate submit">
+              Calculate
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="bmi-inner-box">
+        <h2>Result</h2>
+        <div class="bmi-result-box">
+          <p>Your current BMI</p>
+          <h6 class="bmi-resulted">00</h6>
+          <div class="bmi-s-box">
+            <p class="age">age</p>
+            <p class="month-year">mm y</p>
+          </div>
+        </div>
+        <p class="p-block p-color-white">
+          For your height, a normal weight range would be from 48.6 65.3
+          kilograms
+        </p>
+
+        <p class="p-block">
+          Your BMI is 21.3, indicating your weightis the Normal category for
+          adults of your height
+        </p>
+
+        <p class="p-block">
+          Maintaining a healthy weight may reduce the risk of chronic disease
+          associated with overweight and obesity.
+        </p>
+
+        <button class="btn-calculatex" type="submit">Recalculate BMI</button>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
