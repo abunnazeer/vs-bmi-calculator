@@ -1,32 +1,50 @@
 'use strict';
-// const male = document.getElementById('male').value;
-// const female = document.getElementById('female').value;
-
+const gender = document.querySelectorAll('input[name="gender"]');
+const bmiMessage = document.querySelector('.message');
 const bmiHeight = document.getElementById('height');
-
 const bmiWeight = document.getElementById('weight');
 const age = document.getElementById('your-age');
-
-const bmiDate = document.querySelector('.month-year');
-
 const bmiBtn = document.querySelector('.submit');
 
-const currentDate = new Date().toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'numeric',
-});
+// Form Validation function
+const validation = function formValidation() {
+  bmiWeight.style.borderColor = 'red';
+  bmiHeight.style.borderColor = 'red';
+  age.style.borderColor = 'red';
+};
+// Select Gender function
+function selectedGender() {
+  for (let i = 0; i < gender.length; i++) {
+    if (gender[i].checked)
+      document.querySelector(
+        '.your-gender'
+      ).textContent = `Gender: ${gender[i].value}`;
+  }
+}
+
 bmiBtn.addEventListener('click', function () {
-  // this how we calculate the bmi
-  let bmi = Number(bmiWeight.value) / Math.pow(Number(bmiHeight.value), 2);
-  let bmiResult = (document.querySelector('.bmi-resulted').textContent =
-    Math.round(bmi));
-  // this how we get add value of the age
-  document.querySelector('.age').textContent = `Age: ${age.value}`;
-  if (bmi !== bmiResult) {
-    bmiDate.textContent = currentDate;
+  //Form Validation check
+  if (bmiHeight.value == '' && bmiWeight.value == '' && age.value == '') {
+    bmiWeight.style.borderColor = 'red';
+    bmiHeight.style.borderColor = 'red';
+    age.style.borderColor = 'red';
+  } else {
+    // BMI calculation code
+    let bmi = Number(bmiWeight.value) / Math.pow(Number(bmiHeight.value), 2);
+    let bmiResult = (document.querySelector('.bmi-resulted').textContent =
+      Math.round(bmi));
+    // Display  age
+    document.querySelector('.age').textContent = `Age: ${age.value}`;
+
+    // Calling a Display Gender function
+    selectedGender();
+    // Message to display when the result been calculated
+    if (bmi <= 24.9) {
+      bmiMessage.textContent = `Your Body Mass Index is ${bmi}. This is considered normal.`;
+    } else if (bmi <= 19.5) {
+      bmiMessage.textContent = `Your Body Mass Index is ${bmi}. This is considered severely underweight.`;
+    } else if (bmi >= 25.8) {
+      bmiMessage.textContent = `Your Body Mass Index is ${bmi}. This is considered overweight.`;
+    }
   }
 });
-//Your Body Mass Index is 11.3. This is considered severely underweight.
-// Your Body Mass Index is 25.8. This is considered overweight.
-
-//Your Body Mass Index is 21.5. This is considered normal.
