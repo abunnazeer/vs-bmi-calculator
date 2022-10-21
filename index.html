@@ -11,65 +11,95 @@
     <!-- BMI JAVASCRIPT CODE -->
   </head>
   <body>
-    <div class="bmi-container">
-      <div class="bmi-inner-box">
-        <h2>BMI Calculator</h2>
-        <form class="bmi-form">
-          <h6>Gender</h6>
-          <div class="gender">
-            <input type="radio" id="male" name="gender" value="male" checked />
-            <img src="assets/icons/man.png" alt="" />
-            <label for="male">Male</label>
-          </div>
-          <div class="gender">
-            <input type="radio" id="female" name="gender" value="female" />
-            <img src="assets/icons/female.png" alt="" />
-            <label for="female">Female</label>
-          </div>
-          <div class="mesurement-box">
-            <div class="m--box">
-              <label for="weight">Weight</label>
-              <input type="text" name="weight" id="weight" />
+    <section id="main-container">
+      <div class="bmi-container">
+        <div class="bmi-inner-box">
+          <h2>BMI Calculator</h2>
+          <form class="bmi-form">
+            <h6>Gender</h6>
+            <div class="gender">
+              <input
+                type="radio"
+                id="male"
+                name="gender"
+                value="male"
+                checked
+              />
+              <img src="assets/icons/man.png" alt="" />
+              <label for="male">Male</label>
             </div>
-            <div class="m--box">
-              <label for="height">Height</label>
-              <input type="text" name="height" id="height" />
+            <div class="gender">
+              <input type="radio" id="female" name="gender" value="female" />
+              <img src="assets/icons/female.png" alt="" />
+              <label for="female">Female</label>
             </div>
-            <div class="m--box">
-              <label for="date">Age</label>
-              <input type="text" name="date" id="your-age" />
-            </div>
+            <div class="mesurement-box">
+              <div class="m--box">
+                <label for="weight" class="validation">Weight</label>
+                <input type="text" name="weight" id="weight" />
+              </div>
+              <div class="m--box">
+                <label for="height" class="validation">Height</label>
+                <input type="text" name="height" id="height" />
+              </div>
+              <div class="m--box">
+                <label for="date" class="validation">Age</label>
+                <input type="text" name="date" id="your-age" />
+              </div>
 
-            <button type="button" class="btn-calculate submit">
-              Calculate
-            </button>
+              <button type="button" class="btn-calculate submit">
+                Calculate
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="bmi-inner-box">
+          <h2>Result</h2>
+          <div class="bmi-result-box">
+            <p>Your current BMI</p>
+            <h6 class="bmi-resulted">00</h6>
+            <div class="bmi-s-box">
+              <p class="age">Your Age</p>
+              <p class="your-gender">Your Gender</p>
+            </div>
           </div>
+          <p class="p-block message">
+            Your BMI is 21.3, indicating your weightis the Normal category for
+            adults of your height
+          </p>
+
+          <p class="p-block">
+            Maintaining a healthy weight may reduce the risk of chronic disease
+            associated with overweight and obesity.
+          </p>
+
+          <button class="btn-calculate comment" type="button">
+            Leave a comment
+          </button>
+        </div>
+      </div>
+      <div class="bmi-overlay bmi-hidden"></div>
+      <div class="comment-container bmi-hidden">
+        <form id="comment">
+          <div class="m--box">
+            <label for="name" class="c-validation">Your Name</label>
+            <input type="text" id="your-name" />
+          </div>
+
+          <label for="messaging" class="c-validation">Your Comment</label><br />
+          <textarea name="" id="messaging" cols="40" rows="10"></textarea><br />
+          <button class="btn-comment-submit" type="button">Submit</button>
+          <button class="btn-comment-cancel" type="button">Cancel</button>
         </form>
       </div>
 
-      <div class="bmi-inner-box">
-        <h2>Result</h2>
-        <div class="bmi-result-box">
-          <p>Your current BMI</p>
-          <h6 class="bmi-resulted">00</h6>
-          <div class="bmi-s-box">
-            <p class="age">Your Age</p>
-            <p class="your-gender">Your Gender</p>
-          </div>
-        </div>
-        <p class="p-block message">
-          Your BMI is 21.3, indicating your weightis the Normal category for
-          adults of your height
-        </p>
-
-        <p class="p-block">
-          Maintaining a healthy weight may reduce the risk of chronic disease
-          associated with overweight and obesity.
-        </p>
-
-        <button class="btn-calculate" type="submit">Recalculate BMI</button>
+      <div class="comment-result">
+        <h3 id="name-box"></h3>
+        <p id="comment-mbox">no comment yet</p>
       </div>
-    </div>
+    </section>
+
     <script src="app.js"></script>
   </body>
 </html>
